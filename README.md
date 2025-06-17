@@ -16,9 +16,9 @@ OutersaleBackend automates the process of collecting business intelligence data 
 
 ### Core Components
 
-**ChromeApi** - Handles Apollo.io URL processing and manages scraping tasks
-**OrganizationApi** - Manages company data with advanced filtering capabilities  
-**PeopleApi** - Handles contact information and people search functionality
+- **ChromeApi** - Handles Apollo.io URL processing and manages scraping tasks
+- **OrganizationApi** - Manages company data with advanced filtering capabilities  
+- **PeopleApi** - Handles contact information and people search functionality
 
 ### Data Flow
 
@@ -156,9 +156,11 @@ curl http://<your-ip>:8000/api/chrome/scraping-control/
 curl -X POST http://<your-ip>:8000/api/taskmapping/ \
   -H "Content-Type: application/json" \
   -d '{
-    "task_id": "674a1b2c8d9e1f2a3b4c5d6e",
-    "count": 25
-  }'
+  "task_ids": ["6842b07f65c07db3d81ba8c8", "6842ae4a65c07db3d81ba788"],
+  "data_type": "organizations",  // or "people"
+  "page": 1,
+  "page_size": 25
+}'
 ```
 
 ### Example 2: Finding CEOs in Specific Industries
